@@ -24,7 +24,6 @@ target 'LxMusicMobile' do
     :hermes_enabled => true,
     :flipper_configuration => flipper_config,
     :app_path => "#{Pod::Config.instance.installation_root}/..",
-    :app_transport_security_enabled => true
   )
 
   target 'LxMusicMobileTests' do
