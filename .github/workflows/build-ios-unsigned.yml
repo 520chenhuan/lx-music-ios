@@ -42,7 +42,7 @@ jobs:
           echo "Starting pod install..."
           echo "CocoaPods version: $(pod --version)"
           echo "Ruby version: $(ruby --version)"
-          NO_FLIPPER=1 pod install --repo-update
+          NO_FLIPPER=1 pod install 
           POD_EXIT=$?
           echo "Pod install exit code: $POD_EXIT"
           if [ $POD_EXIT -ne 0 ]; then
