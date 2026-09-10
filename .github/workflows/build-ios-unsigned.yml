@@ -38,16 +38,21 @@ jobs:
 
       - name: Install Pods
         run: |
+          set -o pipefail
           cd ios
           echo "Starting pod install..."
           echo "CocoaPods version: $(pod --version)"
           echo "Ruby version: $(ruby --version)"
           NO_FLIPPER=1 pod install --repo-update 2>&1 | tee /tmp/pod-install.log
+          echo "Pod install exit code: ${PIPESTATUS[0]}"
           if [ ! -f LxMusicMobile.xcworkspace ]; then
             echo "ERROR: LxMusicMobile.xcworkspace was not created!"
+            echo "=== Pod install log ==="
+            cat /tmp/pod-install.log
+            echo "=== End log ==="
             exit 1
           fi
-          echo "Exit code: $?"
+          echo "SUCCESS: xcworkspace created."
 
       - name: Upload pod install log on failure
         if: failure()
