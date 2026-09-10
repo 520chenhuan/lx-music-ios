@@ -14,52 +14,52 @@ target 'LxMusicMobile' do
   config = use_native_modules!
   react_native_path = config[:reactNativePath]
 
-  pod 'FBLazyVector', :path => "\#{react_native_path}/Libraries/FBLazyVector"
-  pod 'FBReactNativeSpec', :path => "\#{react_native_path}/React/FBReactNativeSpec"
-  pod 'RCTRequired', :path => "\#{react_native_path}/Libraries/RCTRequired"
-  pod 'RCTTypeSafety', :path => "\#{react_native_path}/Libraries/TypeSafety", :modular_headers => true
-  pod 'React', :path => "\#{react_native_path}/"
-  pod 'React-Core', :path => "\#{react_native_path}/"
-  pod 'React-CoreModules', :path => "\#{react_native_path}/React/CoreModules"
-  pod 'React-RCTAppDelegate', :path => "\#{react_native_path}/Libraries/AppDelegate"
-  pod 'React-RCTActionSheet', :path => "\#{react_native_path}/Libraries/ActionSheetIOS"
-  pod 'React-RCTAnimation', :path => "\#{react_native_path}/Libraries/NativeAnimation"
-  pod 'React-RCTBlob', :path => "\#{react_native_path}/Libraries/Blob"
-  pod 'React-RCTImage', :path => "\#{react_native_path}/Libraries/Image"
-  pod 'React-RCTLinking', :path => "\#{react_native_path}/Libraries/LinkingIOS"
-  pod 'React-RCTNetwork', :path => "\#{react_native_path}/Libraries/Network"
-  pod 'React-RCTSettings', :path => "\#{react_native_path}/Libraries/Settings"
-  pod 'React-RCTText', :path => "\#{react_native_path}/Libraries/Text"
-  pod 'React-RCTVibration', :path => "\#{react_native_path}/Libraries/Vibration"
-  pod 'React-Core/RCTWebSocket', :path => "\#{react_native_path}/"
-  pod 'React-rncore', :path => "\#{react_native_path}/ReactCommon"
-  pod 'React-cxxreact', :path => "\#{react_native_path}/ReactCommon/cxxreact"
-  pod 'React-debug', :path => "\#{react_native_path}/ReactCommon/react/debug"
-  pod 'React-utils', :path => "\#{react_native_path}/ReactCommon/react/utils"
-  pod 'React-Mapbuffer', :path => "\#{react_native_path}/ReactCommon"
-  pod 'React-jserrorhandler', :path => "\#{react_native_path}/ReactCommon/jserrorhandler"
-  pod 'React-nativeconfig', :path => "\#{react_native_path}/ReactCommon"
-  pod 'React-jsiexecutor', :path => "\#{react_native_path}/ReactCommon/jsiexecutor"
-  pod 'React-jsinspector', :path => "\#{react_native_path}/ReactCommon/jsinspector-modern"
-  pod 'React-callinvoker', :path => "\#{react_native_path}/ReactCommon/callinvoker"
-  pod 'React-runtimeexecutor', :path => "\#{react_native_path}/ReactCommon/runtimeexecutor"
-  pod 'React-runtimescheduler', :path => "\#{react_native_path}/ReactCommon/react/renderer/runtimescheduler"
-  pod 'React-rendererdebug', :path => "\#{react_native_path}/ReactCommon/react/renderer/debug"
-  pod 'React-perflogger', :path => "\#{react_native_path}/ReactCommon/reactperflogger"
-  pod 'React-logger', :path => "\#{react_native_path}/ReactCommon/logger"
-  pod 'ReactCommon/turbomodule/core', :path => "\#{react_native_path}/ReactCommon", :modular_headers => true
-  pod 'React-NativeModulesApple', :path => "\#{react_native_path}/ReactCommon/react/nativemodule/core/platform/ios", :modular_headers => true
-  pod 'Yoga', :path => "\#{react_native_path}/ReactCommon/yoga", :modular_headers => true
+  pod 'FBLazyVector', :path => "#{react_native_path}/Libraries/FBLazyVector"
+  pod 'FBReactNativeSpec', :path => "#{react_native_path}/React/FBReactNativeSpec"
+  pod 'RCTRequired', :path => "#{react_native_path}/Libraries/RCTRequired"
+  pod 'RCTTypeSafety', :path => "#{react_native_path}/Libraries/TypeSafety", :modular_headers => true
+  pod 'React', :path => "#{react_native_path}/"
+  pod 'React-Core', :path => "#{react_native_path}/"
+  pod 'React-CoreModules', :path => "#{react_native_path}/React/CoreModules"
+  pod 'React-RCTAppDelegate', :path => "#{react_native_path}/Libraries/AppDelegate"
+  pod 'React-RCTActionSheet', :path => "#{react_native_path}/Libraries/ActionSheetIOS"
+  pod 'React-RCTAnimation', :path => "#{react_native_path}/Libraries/NativeAnimation"
+  pod 'React-RCTBlob', :path => "#{react_native_path}/Libraries/Blob"
+  pod 'React-RCTImage', :path => "#{react_native_path}/Libraries/Image"
+  pod 'React-RCTLinking', :path => "#{react_native_path}/Libraries/LinkingIOS"
+  pod 'React-RCTNetwork', :path => "#{react_native_path}/Libraries/Network"
+  pod 'React-RCTSettings', :path => "#{react_native_path}/Libraries/Settings"
+  pod 'React-RCTText', :path => "#{react_native_path}/Libraries/Text"
+  pod 'React-RCTVibration', :path => "#{react_native_path}/Libraries/Vibration"
+  pod 'React-Core/RCTWebSocket', :path => "#{react_native_path}/"
+  pod 'React-rncore', :path => "#{react_native_path}/ReactCommon"
+  pod 'React-cxxreact', :path => "#{react_native_path}/ReactCommon/cxxreact"
+  pod 'React-debug', :path => "#{react_native_path}/ReactCommon/react/debug"
+  pod 'React-utils', :path => "#{react_native_path}/ReactCommon/react/utils"
+  pod 'React-Mapbuffer', :path => "#{react_native_path}/ReactCommon"
+  pod 'React-jserrorhandler', :path => "#{react_native_path}/ReactCommon/jserrorhandler"
+  pod 'React-nativeconfig', :path => "#{react_native_path}/ReactCommon"
+  pod 'React-jsiexecutor', :path => "#{react_native_path}/ReactCommon/jsiexecutor"
+  pod 'React-jsinspector', :path => "#{react_native_path}/ReactCommon/jsinspector-modern"
+  pod 'React-callinvoker', :path => "#{react_native_path}/ReactCommon/callinvoker"
+  pod 'React-runtimeexecutor', :path => "#{react_native_path}/ReactCommon/runtimeexecutor"
+  pod 'React-runtimescheduler', :path => "#{react_native_path}/ReactCommon/react/renderer/runtimescheduler"
+  pod 'React-rendererdebug', :path => "#{react_native_path}/ReactCommon/react/renderer/debug"
+  pod 'React-perflogger', :path => "#{react_native_path}/ReactCommon/reactperflogger"
+  pod 'React-logger', :path => "#{react_native_path}/ReactCommon/logger"
+  pod 'ReactCommon/turbomodule/core', :path => "#{react_native_path}/ReactCommon", :modular_headers => true
+  pod 'React-NativeModulesApple', :path => "#{react_native_path}/ReactCommon/react/nativemodule/core/platform/ios", :modular_headers => true
+  pod 'Yoga', :path => "#{react_native_path}/ReactCommon/yoga", :modular_headers => true
 
-  pod 'DoubleConversion', :podspec => "\#{react_native_path}/third-party-podspecs/DoubleConversion.podspec"
-  pod 'glog', :podspec => "\#{react_native_path}/third-party-podspecs/glog.podspec"
-  pod 'boost', :podspec => "\#{react_native_path}/third-party-podspecs/boost.podspec"
-  pod 'RCT-Folly', :podspec => "\#{react_native_path}/third-party-podspecs/RCT-Folly.podspec", :modular_headers => true
+  pod 'DoubleConversion', :podspec => "#{react_native_path}/third-party-podspecs/DoubleConversion.podspec"
+  pod 'glog', :podspec => "#{react_native_path}/third-party-podspecs/glog.podspec"
+  pod 'boost', :podspec => "#{react_native_path}/third-party-podspecs/boost.podspec"
+  pod 'RCT-Folly', :podspec => "#{react_native_path}/third-party-podspecs/RCT-Folly.podspec", :modular_headers => true
 
   hermestag_file = File.join(react_native_path, 'sdks', '.hermesversion')
   hermestag = File.exist?(hermestag_file) ? File.read(hermestag_file).strip : ''
-  pod 'hermes-engine', :podspec => "\#{react_native_path}/sdks/hermes-engine/hermes-engine.podspec", :tag => hermestag
-  pod 'React-hermes', :path => "\#{react_native_path}/ReactCommon/hermes"
+  pod 'hermes-engine', :podspec => "#{react_native_path}/sdks/hermes-engine/hermes-engine.podspec", :tag => hermestag
+  pod 'React-hermes', :path => "#{react_native_path}/ReactCommon/hermes"
   pod 'libevent', '~> 2.1.12'
 
   use_native_modules!
