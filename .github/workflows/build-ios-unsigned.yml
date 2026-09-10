@@ -38,18 +38,20 @@ jobs:
 
       - name: Install Pods
         run: |
-          set -o pipefail
           cd ios
           echo "Starting pod install..."
           echo "CocoaPods version: $(pod --version)"
           echo "Ruby version: $(ruby --version)"
-          NO_FLIPPER=1 pod install --repo-update 2>&1 | tee /tmp/pod-install.log
-          echo "Pod install exit code: ${PIPESTATUS[0]}"
+          NO_FLIPPER=1 pod install --repo-update
+          POD_EXIT=$?
+          echo "Pod install exit code: $POD_EXIT"
+          if [ $POD_EXIT -ne 0 ]; then
+            echo "ERROR: pod install failed with exit code $POD_EXIT"
+            exit $POD_EXIT
+          fi
           if [ ! -f LxMusicMobile.xcworkspace ]; then
             echo "ERROR: LxMusicMobile.xcworkspace was not created!"
-            echo "=== Pod install log ==="
-            cat /tmp/pod-install.log
-            echo "=== End log ==="
+            ls -la
             exit 1
           fi
           echo "SUCCESS: xcworkspace created."
@@ -59,7 +61,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: pod-install-log
-          path: /tmp/pod-install.log
+          path: ios/Podfile.lock
 
       - name: Build unsigned archive
         run: |
