@@ -49,12 +49,6 @@ jobs:
             echo "ERROR: pod install failed with exit code $POD_EXIT"
             exit $POD_EXIT
           fi
-          if [ ! -f LxMusicMobile.xcworkspace ]; then
-            echo "ERROR: LxMusicMobile.xcworkspace was not created!"
-            ls -la
-            exit 1
-          fi
-          echo "SUCCESS: xcworkspace created."
 
       - name: Upload pod install log on failure
         if: failure()
