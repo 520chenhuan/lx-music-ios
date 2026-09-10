@@ -7,12 +7,10 @@ on:
 
 jobs:
   build-ios:
-    # 固定到 macOS-14 (Xcode 15.4)。注意：macos-latest 现在是 macOS-26 / Xcode 26，
-    # 其 iOS 26 SDK 已移除 swiftCompatibility56/Concurrency 兼容库，
-    # 会导致 Swift 库（SwiftAudioEx、react-native-track-player）链接失败。
     runs-on: macos-14
     env:
       CI: "true"
+      NO_FLIPPER: "1"
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -23,8 +21,6 @@ jobs:
           node-version: 18
           cache: npm
 
-      # react-native-file-system 通过 git+ssh 从 GitHub 引用，在 CI 无 SSH key 时会拉取失败，
-      # 导致运行时报 "package doesn't seem to be linked"。全局把 ssh 协议替换为 https。
       - name: Force GitHub dependencies over HTTPS
         run: git config --global url."https://github.com/".insteadOf "ssh://git@github.com/"
 
@@ -38,21 +34,12 @@ jobs:
           bundler-cache: true
 
       - name: Install Pods
-        run: cd ios && bundle exec pod install
+        run: cd ios && NO_FLIPPER=1 bundle exec pod install
 
       - name: Build unsigned archive
         run: |
           set -e
-          xcodebuild \
-            -workspace ios/LxMusicMobile.xcworkspace \
-            -scheme LxMusicMobile \
-            -configuration Release \
-            -destination 'generic/platform=iOS' \
-            -archivePath "$PWD/build/LxMusicMobile.xcarchive" \
-            archive \
-            CODE_SIGNING_ALLOWED=NO \
-            CODE_SIGN_IDENTITY="" \
-            DEVELOPMENT_TEAM=""
+          xcodebuild             -workspace ios/LxMusicMobile.xcworkspace             -scheme LxMusicMobile             -configuration Release             -destination 'generic/platform=iOS'             -archivePath "$PWD/build/LxMusicMobile.xcarchive"             archive             CODE_SIGNING_ALLOWED=NO             CODE_SIGN_IDENTITY=""             DEVELOPMENT_TEAM=""
 
       - name: Package unsigned IPA
         run: |
