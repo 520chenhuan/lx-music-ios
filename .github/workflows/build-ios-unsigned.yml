@@ -43,6 +43,10 @@ jobs:
           echo "CocoaPods version: $(pod --version)"
           echo "Ruby version: $(ruby --version)"
           NO_FLIPPER=1 pod install --repo-update 2>&1 | tee /tmp/pod-install.log
+          if [ ! -f LxMusicMobile.xcworkspace ]; then
+            echo "ERROR: LxMusicMobile.xcworkspace was not created!"
+            exit 1
+          fi
           echo "Exit code: $?"
 
       - name: Upload pod install log on failure
