@@ -37,7 +37,7 @@ jobs:
         run: gem install cocoapods --no-document
 
       - name: Install Pods
-        run: cd ios && NO_FLIPPER=1 pod install
+        run: cd ios && NO_FLIPPER=1 pod install --repo-update
 
       - name: Build unsigned archive
         run: |
