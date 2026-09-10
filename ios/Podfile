@@ -10,26 +10,32 @@ prepare_react_native_project!
 
 flipper_config = ENV['NO_FLIPPER'] == '1' ? FlipperConfiguration.disabled : FlipperConfiguration.enabled
 
+linkage = ENV['USE_FRAMEWORKS']
+if linkage != nil
+  Pod::UI.puts "Configuring Pod with #{linkage}ally linked Frameworks".green
+  use_frameworks! :linkage => linkage.to_sym
+end
+
 target 'LxMusicMobile' do
   config = use_native_modules!
-  react_native_path = config[:reactNativePath]
 
   use_react_native!(
     :path => config[:reactNativePath],
     :hermes_enabled => true,
     :flipper_configuration => flipper_config,
+    :app_path => "#{Pod::Config.instance.installation_root}/..",
     :app_transport_security_enabled => true
   )
-end
 
-target 'LxMusicMobileTests' do
-  inherit! :complete
-end
+  target 'LxMusicMobileTests' do
+    inherit! :complete
+  end
 
-post_install do |installer|
-  react_native_post_install(
-    installer,
-    config[:reactNativePath],
-    mac_catalyst_enabled: false
-  )
+  post_install do |installer|
+    react_native_post_install(
+      installer,
+      config[:reactNativePath],
+      :mac_catalyst_enabled => false
+    )
+  end
 end
