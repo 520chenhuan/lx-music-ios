@@ -37,7 +37,20 @@ jobs:
         run: gem install cocoapods --no-document
 
       - name: Install Pods
-        run: cd ios && NO_FLIPPER=1 pod install --repo-update
+        run: |
+          cd ios
+          echo "Starting pod install..."
+          echo "CocoaPods version: $(pod --version)"
+          echo "Ruby version: $(ruby --version)"
+          NO_FLIPPER=1 pod install --repo-update 2>&1 | tee /tmp/pod-install.log
+          echo "Exit code: $?"
+
+      - name: Upload pod install log on failure
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: pod-install-log
+          path: /tmp/pod-install.log
 
       - name: Build unsigned archive
         run: |
